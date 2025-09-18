@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fashion Trends - Catálogo de Ropa</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root { 
+      --accent: #ffffff;
+      --dark-bg: #121212; 
+      --gray-bg: #1f1f1f; 
+      --light-gray: #e0e0e0; 
+      --text-light: #f5f5f5; 
+      --text-muted: #b0b0b0;
+    }
+    body { 
+      padding-top: 70px; 
+      font-family: 'Segoe UI', sans-serif; 
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: var(--text-light);
+    }
+    section { padding: 3rem 0; }
+    footer { 
+      padding: 1rem 0; 
+      border-top: 1px solid #333; 
+      margin-top: 2rem; 
+      color: var(--text-muted);
+    }
+    .card { 
+      background: var(--gray-bg); 
+      color: var(--text-light); 
+      border: none; 
+      box-shadow: 0 4px 8px rgba(0,0,0,.5); 
+    }
+    .card-title { font-weight: bold; }
+    .product-img { 
+      height: 250px; 
+      object-fit: cover; 
+      border-radius: .25rem; 
+    }
+    .btn-primary { 
+      background-color: #333; 
+      border: 1px solid #555; 
+    }
+    .btn-primary:hover { 
+      background-color: #555; 
+      border-color: #777; 
+    }
+    .modal-content { 
+      background-color: var(--gray-bg); 
+      color: var(--text-light); 
+    }
+    .list-group-item { 
+      background-color: var(--dark-bg); 
+      color: var(--text-light); 
+      border: 1px solid #333; 
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#">Fashion Trends</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#coleccion">Colección Destacada</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item">
+            <button class="btn btn-outline-light btn-sm ms-2" id="openCartBtn">
+              🛒 Carrito (<span id="cartCount">0</span>)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SLIDER -->
+  <header>
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="CLOTHES1.jpg" class="d-block w-100" alt="Moda 1" style="height:500px;object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Fashion Trends 2025</h2>
+            <p>Estilo monocromo elegante</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="CLOTHES2.jpg" class="d-block w-100" alt="Moda 2" style="height:500px;object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Exclusividad</h2>
+            <p>Diseños únicos en negro</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="CLOTHES3.jpg" class="d-block w-100" alt="Moda 3" style="height:500px;object-fit:cover;">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Elegancia</h2>
+            <p>Lo mejor de la temporada</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+
+    <!-- Colección Destacada (original) -->
+    <section id="coleccion" class="mt-5">
+      <h2>Colección Destacada</h2>
+      <p>Explora nuestra selección más exclusiva.</p>
+      <a href="#proxima-temporada" class="btn btn-primary">Ver Próxima Temporada</a>
+    </section>
+
+    <!-- Catálogo (local) -->
+    <section id="catalogo" class="mt-5">
+      <h2>Nuestro Catálogo de Ropa</h2>
+      <div class="row" id="productsRow"></div>
+    </section>
+
+    <!-- Próxima Temporada -->
+    <section id="proxima-temporada" class="mt-5">
+      <h2>Próxima Temporada</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <img src="EXCLUSIVO2.jpg" class="card-img-top product-img" alt="Chaqueta Primavera Hombre">
+            <div class="card-body text-center">
+              <h5 class="card-title">Ropa Destacada</h5>
+              <p class="card-text">Descubre lo que viene</p>
+              <a href="nuevatemporada.html" class="btn btn-primary btn-sm">Ver Próxima Temporada</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center mt-4">
+    <p>&copy; 2025 Fashion Trends. Todos los derechos reservados.</p>
+    <p>Autores: Azareel Linnette Pineda Díaz, Ivanna Aguilar Navarrete y Sabrina De Persiis</p>
+  </footer>
+
+  <!-- Modal carrito -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tu Carrito de Compras</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="cartItems" class="list-group"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <a href="carrito.html" class="btn btn-primary">Ir al Carrito Completo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartModalEl = document.getElementById('cartModal');
+      const cartModal = new bootstrap.Modal(cartModalEl);
+      const productsRow = document.getElementById('productsRow');
+
+      // Abrir carrito
+      document.getElementById('openCartBtn').addEventListener('click', () => {
+        cartModal.show();
+      });
+
+      // Catálogo Local (como lo tenías)
+      const clothes = [
+        { title: "Traje Negro Hombre", price: 2500, image: "TRAJEH.jpg" },
+        { title: "Camisa Negra Hombre", price: 1000, image: "CAMISAH.jpg" },
+        { title: "Chaqueta Negra Mujer", price: 1500, image: "CHAQUETAM.jpg" },
+        { title: "Vestido Mujer", price: 1500, image: "VESTIDO.jpg" },
+        { title: "Abrigo Invierno Mujer", price: 1500, image: "ABRIGOM.jpg" },
+        { title: "Pijama Mujer", price: 799, image: "PIJAMAM.jpg" },
+        { title: "Falda Mujer", price: 899, image: "FALDAM.jpg" },
+        { title: "Traje Mujer", price: 3999, image: "TRAJEM.jpg" },
+        { title: "Pijama Hombre", price: 600, image: "PIJAMAH.jpg" },
+        { title: "Botas Mujer", price: 1300, image: "BOTAS.jpg" }
+      ];
+
+      clothes.forEach(product => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4 mb-3';
+        col.innerHTML = `
+          <div class="card h-100">
+            <img src="${product.image}" class="card-img-top product-img" alt="${product.title}">
+            <div class="card-body text-center">
+              <h5 class="card-title">${product.title}</h5>
+              <p class="card-text">$${product.price}</p>
+              <button class="btn btn-primary btn-sm">Agregar</button>
+            </div>
+          </div>
+        `;
+        productsRow.appendChild(col);
+
+        col.querySelector("button").addEventListener("click", () => {
+          cart.push({ title: product.title, price: `$${product.price}` });
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          cartItems.innerHTML = '';
+          cart.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = `${item.title} - ${item.price}`;
+            cartItems.appendChild(li);
+          });
+
+          cartCount.textContent = cart.length;
+          cartModal.show();
+        });
+      });
+
+      cartCount.textContent = cart.length;
+    });
+  </script>
+</body>
+</html>
